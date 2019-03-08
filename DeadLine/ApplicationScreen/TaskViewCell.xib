@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="TaskViewCell" customModule="DeadLine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-le-qOp" userLabel="Colortag">
+                        <rect key="frame" x="-5" y="7" width="10" height="46.5"/>
+                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="kHT-dB-R2L"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94d-aM-aeS">
+                        <rect key="frame" x="31" y="9" width="17" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="notCompleted"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подумать о смысле жизни" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5V-e0-sje">
+                        <rect key="frame" x="66" y="9" width="246" height="20.5"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.01.2019 15:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWE-aD-b6f">
+                        <rect key="frame" x="66" y="34" width="111" height="17"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
+                        <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Awz-zy-VLL">
+                        <rect key="frame" x="351" y="24" width="8" height="13"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="DWE-aD-b6f" secondAttribute="bottom" constant="8.5" id="0no-rf-ok1"/>
+                    <constraint firstAttribute="bottom" secondItem="D5V-e0-sje" secondAttribute="bottom" constant="30" id="1C5-Nd-Zki"/>
+                    <constraint firstItem="lhq-le-qOp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-5" id="1lw-4x-lTn"/>
+                    <constraint firstItem="D5V-e0-sje" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="9E8-ki-bh4"/>
+                    <constraint firstAttribute="trailing" secondItem="DWE-aD-b6f" secondAttribute="trailing" constant="198" id="EFX-Yv-ABV"/>
+                    <constraint firstAttribute="trailing" secondItem="D5V-e0-sje" secondAttribute="trailing" constant="63" id="X3O-od-4An"/>
+                    <constraint firstItem="D5V-e0-sje" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="fs2-KS-uwg"/>
+                    <constraint firstItem="lhq-le-qOp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="hTb-cj-mKl"/>
+                    <constraint firstItem="DWE-aD-b6f" firstAttribute="leading" secondItem="lhq-le-qOp" secondAttribute="trailing" constant="61" id="lhl-N3-jEO"/>
+                    <constraint firstAttribute="bottom" secondItem="lhq-le-qOp" secondAttribute="bottom" constant="6" id="mh1-ta-NIx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="colorTag" destination="lhq-le-qOp" id="H73-d1-gSQ"/>
+                <outlet property="isCompletedButton" destination="94d-aM-aeS" id="0o4-Ss-zEX"/>
+                <outlet property="taskDate" destination="DWE-aD-b6f" id="ysk-XX-ZSb"/>
+                <outlet property="taskText" destination="D5V-e0-sje" id="8ye-rk-tbc"/>
+                <outlet property="taskTextBottom" destination="1C5-Nd-Zki" id="n2M-Be-B4o"/>
+            </connections>
+            <point key="canvasLocation" x="310" y="147"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Arrow" width="9" height="14"/>
+        <image name="notCompleted" width="17" height="17"/>
+    </resources>
+</document>
