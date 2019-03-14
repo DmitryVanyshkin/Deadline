@@ -17,4 +17,8 @@ class Server{
     func newUser(user : User){
         users.append(user)
     }
+    
+    func authorizeUser(email : String, password : String) -> User?{
+        return users.first(where: {$0.getEmail == email && $0.getPassword == password})
+    }
 }

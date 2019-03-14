@@ -15,6 +15,11 @@ class TaskSystem{
         return allTasks[user.getEmail]
     }
     
+    func getTaskForUser(for user: User, day : Date) -> [Task]?{
+        return allTasks[user.getEmail]?.filter({$0.getDate.getDay() == day.getDay() && $0.getDate.getYear() == day.getYear() && $0.getDate.getMonth() == day.getMonth()})
+    }
+    
+    
     func addTaskForUser(for user : User, task : Task){
         if (allTasks[user.getEmail] != nil){
             allTasks[user.getEmail]!.append(task)

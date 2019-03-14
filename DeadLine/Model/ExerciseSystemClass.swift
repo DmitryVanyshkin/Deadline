@@ -24,6 +24,10 @@ class ExerciseSystem{
         }
     }
     
+    func getExercisesForUser(for user: User, day : Date) -> [Exercise]?{
+        return allExercises[user.getEmail]?.filter({$0.getDay == day})
+    }
+    
     func deleteTaskForUser(for user : User, exercise : Exercise){
         guard var relatedExercises = allExercises[user.getEmail] else{
             return

@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-le-qOp" userLabel="Colortag">
-                        <rect key="frame" x="-5" y="7" width="10" height="46.5"/>
+                        <rect key="frame" x="-5" y="7" width="10" height="42.5"/>
                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="kHT-dB-R2L"/>
@@ -35,34 +35,44 @@
                         <rect key="frame" x="31" y="9" width="17" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="notCompleted"/>
+                        <connections>
+                            <action selector="changeTaskState:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="K9x-KS-uHJ"/>
+                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подумать о смысле жизни" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5V-e0-sje">
-                        <rect key="frame" x="66" y="9" width="246" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Подумать о смысле жизни" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5V-e0-sje">
+                        <rect key="frame" x="66" y="9" width="246" height="24"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.01.2019 15:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWE-aD-b6f">
-                        <rect key="frame" x="66" y="34" width="111" height="17"/>
+                        <rect key="frame" x="66" y="30" width="120" height="17"/>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                         <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Awz-zy-VLL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Awz-zy-VLL">
                         <rect key="frame" x="351" y="24" width="8" height="13"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="xJf-2A-7NG"/>
+                            <constraint firstAttribute="height" constant="13" id="zpW-SF-mp4"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="DWE-aD-b6f" secondAttribute="bottom" constant="8.5" id="0no-rf-ok1"/>
-                    <constraint firstAttribute="bottom" secondItem="D5V-e0-sje" secondAttribute="bottom" constant="30" id="1C5-Nd-Zki"/>
+                    <constraint firstAttribute="bottom" secondItem="D5V-e0-sje" secondAttribute="bottom" constant="26" id="1C5-Nd-Zki"/>
                     <constraint firstItem="lhq-le-qOp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-5" id="1lw-4x-lTn"/>
+                    <constraint firstItem="Awz-zy-VLL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Ee-QY-fkP"/>
                     <constraint firstItem="D5V-e0-sje" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="66" id="9E8-ki-bh4"/>
-                    <constraint firstAttribute="trailing" secondItem="DWE-aD-b6f" secondAttribute="trailing" constant="198" id="EFX-Yv-ABV"/>
+                    <constraint firstAttribute="trailing" secondItem="DWE-aD-b6f" secondAttribute="trailing" constant="189" id="EFX-Yv-ABV"/>
+                    <constraint firstItem="Awz-zy-VLL" firstAttribute="top" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="KoX-K4-8Ie"/>
                     <constraint firstAttribute="trailing" secondItem="D5V-e0-sje" secondAttribute="trailing" constant="63" id="X3O-od-4An"/>
                     <constraint firstItem="D5V-e0-sje" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="fs2-KS-uwg"/>
                     <constraint firstItem="lhq-le-qOp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="hTb-cj-mKl"/>
+                    <constraint firstItem="Awz-zy-VLL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="l4U-Y6-J63"/>
                     <constraint firstItem="DWE-aD-b6f" firstAttribute="leading" secondItem="lhq-le-qOp" secondAttribute="trailing" constant="61" id="lhl-N3-jEO"/>
+                    <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="Awz-zy-VLL" secondAttribute="bottom" constant="12" id="mY1-IK-uEl"/>
                     <constraint firstAttribute="bottom" secondItem="lhq-le-qOp" secondAttribute="bottom" constant="6" id="mh1-ta-NIx"/>
                 </constraints>
             </tableViewCellContentView>
@@ -74,7 +84,7 @@
                 <outlet property="taskText" destination="D5V-e0-sje" id="8ye-rk-tbc"/>
                 <outlet property="taskTextBottom" destination="1C5-Nd-Zki" id="n2M-Be-B4o"/>
             </connections>
-            <point key="canvasLocation" x="310" y="147"/>
+            <point key="canvasLocation" x="309.60000000000002" y="146.62668665667167"/>
         </tableViewCell>
     </objects>
     <resources>

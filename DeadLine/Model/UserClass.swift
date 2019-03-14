@@ -14,6 +14,25 @@ class User {                                                //Класс пол�
     private var educationProgram = EducationProgram()
     private var minor : String? = nil
     private var group = String()
+    private var userTags = defaultTagTopics
+    
+    init(email : String, password : String, fullName : Name, educationProgram : EducationProgram, minor : String? = nil, group : String) {
+        self.email = email
+        self.password = password
+        self.fullName = fullName
+        self.educationProgram = educationProgram
+        self.minor = minor
+        self.group = group
+    }
+    
+    init(){
+        
+    }
+    
+    var getUserTags : [RelatedTopic]{
+        return userTags
+    }
+    
     
     var getEmail : String{
         return email
@@ -76,6 +95,10 @@ class User {                                                //Класс пол�
         fullName.fatherName = name
     }
     
+    func setNewTag(relatedTopic : RelatedTopic){
+        userTags.append(relatedTopic)
+    }
+    
     func setPassword(password : String){
         self.password = password
     }
@@ -108,6 +131,16 @@ struct Name{
     var firstName = String()
     var fatherName = String()
     var lastName = String()
+    
+    init(firstName : String, fatherName : String, lastName : String){
+        self.firstName = firstName
+        self.fatherName = fatherName
+        self.lastName = lastName
+    }
+    
+    init(){
+        
+    }
 }
 
 struct EducationProgram{

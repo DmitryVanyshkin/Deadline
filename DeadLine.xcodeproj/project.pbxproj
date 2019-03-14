@@ -33,6 +33,16 @@
 		CB7D05D0223302B70086C6B5 /* LoginFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05CF223302B70086C6B5 /* LoginFullViewController.swift */; };
 		CB7D05D5223305DD0086C6B5 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05D3223305DD0086C6B5 /* TaskViewCell.swift */; };
 		CB7D05D6223305DD0086C6B5 /* TaskViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7D05D4223305DD0086C6B5 /* TaskViewCell.xib */; };
+		CB7D05D8223313660086C6B5 /* TasksScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05D7223313660086C6B5 /* TasksScreenViewController.swift */; };
+		CB7D05DB2233B7EA0086C6B5 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05D92233B7EA0086C6B5 /* DateCell.swift */; };
+		CB7D05DC2233B7EA0086C6B5 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7D05DA2233B7EA0086C6B5 /* DateCell.xib */; };
+		CB7D05DE223454A70086C6B5 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05DD223454A70086C6B5 /* DateManager.swift */; };
+		CB7D05E02235A8310086C6B5 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05DF2235A8310086C6B5 /* ProfilePageViewController.swift */; };
+		CB7D05E22236A3FA0086C6B5 /* DateStructExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05E12236A3FA0086C6B5 /* DateStructExtensions.swift */; };
+		CB7D05E42237E0B70086C6B5 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05E32237E0B70086C6B5 /* NewTaskViewController.swift */; };
+		CB7D05E722397B6B0086C6B5 /* ColorTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05E522397B6B0086C6B5 /* ColorTagCollectionViewCell.swift */; };
+		CB7D05E822397B6B0086C6B5 /* ColorTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */; };
+		CB7D05EE223990170086C6B5 /* ColorTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05ED223990170086C6B5 /* ColorTagCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +74,16 @@
 		CB7D05CF223302B70086C6B5 /* LoginFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFullViewController.swift; sourceTree = "<group>"; };
 		CB7D05D3223305DD0086C6B5 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
 		CB7D05D4223305DD0086C6B5 /* TaskViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskViewCell.xib; sourceTree = "<group>"; };
+		CB7D05D7223313660086C6B5 /* TasksScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksScreenViewController.swift; sourceTree = "<group>"; };
+		CB7D05D92233B7EA0086C6B5 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		CB7D05DA2233B7EA0086C6B5 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		CB7D05DD223454A70086C6B5 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		CB7D05DF2235A8310086C6B5 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		CB7D05E12236A3FA0086C6B5 /* DateStructExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStructExtensions.swift; sourceTree = "<group>"; };
+		CB7D05E32237E0B70086C6B5 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		CB7D05E522397B6B0086C6B5 /* ColorTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		CB7D05ED223990170086C6B5 /* ColorTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTagCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +160,9 @@
 				CB756A782229A0A500F93680 /* UserClass.swift */,
 				CB756A7B2229AC9E00F93680 /* TaskClass.swift */,
 				CB756A7D2229B45C00F93680 /* TaskSystemClass.swift */,
+				CB7D05E12236A3FA0086C6B5 /* DateStructExtensions.swift */,
 				CB05C7FD222CF1620054FBB0 /* TemporaryData.swift */,
+				CB7D05DD223454A70086C6B5 /* DateManager.swift */,
 				CB05C7F9222C6FB70054FBB0 /* ExerciseClass.swift */,
 				CB05C7FB222C6FC30054FBB0 /* ExerciseSystemClass.swift */,
 				CB05C7F7222C6E3B0054FBB0 /* HardCodeData.swift */,
@@ -153,6 +175,14 @@
 			isa = PBXGroup;
 			children = (
 				CB7D05CD2232F9490086C6B5 /* ApplicationScreens.storyboard */,
+				CB7D05ED223990170086C6B5 /* ColorTagCell.swift */,
+				CB7D05E32237E0B70086C6B5 /* NewTaskViewController.swift */,
+				CB7D05DF2235A8310086C6B5 /* ProfilePageViewController.swift */,
+				CB7D05E522397B6B0086C6B5 /* ColorTagCollectionViewCell.swift */,
+				CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */,
+				CB7D05D92233B7EA0086C6B5 /* DateCell.swift */,
+				CB7D05DA2233B7EA0086C6B5 /* DateCell.xib */,
+				CB7D05D7223313660086C6B5 /* TasksScreenViewController.swift */,
 				CB7D05D3223305DD0086C6B5 /* TaskViewCell.swift */,
 				CB7D05D4223305DD0086C6B5 /* TaskViewCell.xib */,
 			);
@@ -219,6 +249,7 @@
 			files = (
 				CB756A712229A08700F93680 /* LaunchScreen.storyboard in Resources */,
 				CB756A6E2229A08700F93680 /* Assets.xcassets in Resources */,
+				CB7D05E822397B6B0086C6B5 /* ColorTagCollectionViewCell.xib in Resources */,
 				CB7D05D6223305DD0086C6B5 /* TaskViewCell.xib in Resources */,
 				CB05C805222D0DF20054FBB0 /* RegistrationScreens.storyboard in Resources */,
 				CB7D05CE2232F9490086C6B5 /* ApplicationScreens.storyboard in Resources */,
@@ -226,6 +257,7 @@
 				CB05C80C222D571D0054FBB0 /* SFProText-Regular.otf in Resources */,
 				CB05C803222D0D6A0054FBB0 /* antonio-bold.ttf in Resources */,
 				CB756A6C2229A08200F93680 /* Main.storyboard in Resources */,
+				CB7D05DC2233B7EA0086C6B5 /* DateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,11 +269,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB05C80A222D16890054FBB0 /* LoginScreenViewController.swift in Sources */,
+				CB7D05DB2233B7EA0086C6B5 /* DateCell.swift in Sources */,
+				CB7D05E722397B6B0086C6B5 /* ColorTagCollectionViewCell.swift in Sources */,
 				CB05C800222CF2930054FBB0 /* Server.swift in Sources */,
 				CB756A692229A08200F93680 /* ViewController.swift in Sources */,
 				CB7D05D0223302B70086C6B5 /* LoginFullViewController.swift in Sources */,
+				CB7D05DE223454A70086C6B5 /* DateManager.swift in Sources */,
 				CB7D05CB2232D2BF0086C6B5 /* RegistrationScreenNavigation.swift in Sources */,
 				CB7D05C9222F06B10086C6B5 /* InfoDataCell.swift in Sources */,
+				CB7D05E22236A3FA0086C6B5 /* DateStructExtensions.swift in Sources */,
 				CB05C7FA222C6FB70054FBB0 /* ExerciseClass.swift in Sources */,
 				CB756A672229A08200F93680 /* AppDelegate.swift in Sources */,
 				CB756A792229A0A500F93680 /* UserClass.swift in Sources */,
@@ -249,10 +285,14 @@
 				CB756A7E2229B45C00F93680 /* TaskSystemClass.swift in Sources */,
 				CB05C80E222D67FD0054FBB0 /* RegistrationSceenViewController.swift in Sources */,
 				CB756A7C2229AC9E00F93680 /* TaskClass.swift in Sources */,
+				CB7D05D8223313660086C6B5 /* TasksScreenViewController.swift in Sources */,
 				CB05C7FE222CF1620054FBB0 /* TemporaryData.swift in Sources */,
 				CB7D05C7222EF43E0086C6B5 /* ChooseSomeTypesTableViewController.swift in Sources */,
 				CB05C7FC222C6FC30054FBB0 /* ExerciseSystemClass.swift in Sources */,
+				CB7D05E02235A8310086C6B5 /* ProfilePageViewController.swift in Sources */,
 				CB7D05D5223305DD0086C6B5 /* TaskViewCell.swift in Sources */,
+				CB7D05EE223990170086C6B5 /* ColorTagCell.swift in Sources */,
+				CB7D05E42237E0B70086C6B5 /* NewTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

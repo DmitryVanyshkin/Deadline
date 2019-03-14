@@ -140,6 +140,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="checkForFullFields:" destination="dSk-eJ-JKQ" eventType="editingChanged" id="b1G-S8-PA5"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,6 +164,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="checkForFullFields:" destination="dSk-eJ-JKQ" eventType="editingChanged" id="Eof-5L-5nu"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,6 +189,12 @@
                         <viewLayoutGuide key="safeArea" id="ib0-Ul-EPC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Вход" id="A2b-Fk-TbF"/>
+                    <connections>
+                        <outlet property="loginButton" destination="4GO-YX-Z9q" id="RFC-JK-Oys"/>
+                        <outlet property="loginField" destination="1gW-TA-bek" id="FT9-VU-K4x"/>
+                        <outlet property="passwordField" destination="5tO-sU-nYI" id="mJo-zW-sV4"/>
+                        <outlet property="wrongInfoLabel" destination="sX5-hw-yZH" id="JP9-vJ-iZt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqh-cU-ggE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

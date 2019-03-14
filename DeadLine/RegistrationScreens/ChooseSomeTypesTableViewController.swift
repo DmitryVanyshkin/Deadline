@@ -75,7 +75,6 @@ class ChooseSomeTypesTableViewController: UITableViewController {
             return
         }
         if ApplicationData.shared.getUserToAdd == nil{
-            print("create dat boi")
             ApplicationData.shared.createUserToAdd()
         }
         switch  ApplicationData.shared.getDisplay {

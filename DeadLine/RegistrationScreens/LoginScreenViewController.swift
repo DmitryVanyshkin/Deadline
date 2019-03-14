@@ -15,7 +15,12 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         renderButtons()
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func renderButtons(){

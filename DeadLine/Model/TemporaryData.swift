@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
 enum WhatDisplay : Int{
     case minors = 0
@@ -17,14 +18,15 @@ enum WhatDisplay : Int{
 class ApplicationData{
     static let shared = ApplicationData()
     
-    private var currentUser : User?
+    var currentUser : User?
     
     private var userToAdd : User?
     
     private var whatDisplay = WhatDisplay.minors
     
-    private var server = Server()
+    var server = Server()
     
+    let dateManager = DateManager()
     
     private let programsList = [EducationProgram(name: "Информатика и вычислительная техника", short: "БИВ"), EducationProgram(name: "Инфокоммуникационные технологии и системы связи", short: "БИТ"), EducationProgram(name: "Прикладная математика", short: "БПМ"), EducationProgram(name: "Логистика и управление цепями поставок", short: "БЛГ"), EducationProgram(name: "Компьютерная безопасность", short: "СКБ", programType : ProgramType.specialist), EducationProgram(name: "Программная инженерия", short: "БПИ"), EducationProgram(name: "Прикладная математика и информатика", short: "БПМИ")]
     
@@ -100,4 +102,52 @@ class ApplicationData{
     }
     
     
+}
+
+func hexStringToUIColor (hex:String) -> UIColor {
+    var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    
+    if (cString.hasPrefix("#")) {
+        cString.remove(at: cString.startIndex)
+    }
+    
+    if ((cString.count) != 6) {
+        return UIColor.gray
+    }
+    
+    var rgbValue:UInt32 = 0
+    Scanner(string: cString).scanHexInt32(&rgbValue)
+    
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
+
+extension UIColor {
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return NSString(format:"#%06x", rgb) as String
+    }
+    
+    convenience init(red: Int, green: Int, blue: Int) {
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+}
+
+func rgbToHex(red : CGFloat, green : CGFloat, blue : CGFloat, alpha: CGFloat) -> String{
+    let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    return color.toHexString()
 }

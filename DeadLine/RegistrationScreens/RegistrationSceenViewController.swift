@@ -28,6 +28,8 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         registrateButton.isEnabled = false
         preloadButtons()
+        self.navigationController?.isNavigationBarHidden = false
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }

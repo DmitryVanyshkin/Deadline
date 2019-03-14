@@ -36,4 +36,8 @@ class Exercise{                 //Класс занятия - нужен для 
         return uniqueId
     }
     
+    var getDay : Date{
+        return dateStart
+    }
+    
 }

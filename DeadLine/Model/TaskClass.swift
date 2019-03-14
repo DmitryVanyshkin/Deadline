@@ -17,12 +17,21 @@ struct RelatedTopic{                       //Данная структура о�
     var relatedTopicName = String()         //Полное имя - для хранения
     var relatedTopicShortForm = String()    //Сокращенная форма - отображается на экране
     var relatedTopicColor = String()        //Цвет - для отображения на экране
+    init(short : String, color : String) {
+        self.relatedTopicShortForm = short
+        self.relatedTopicColor = color
+    }
+    init(){
+        
+    }
+    
 }
 
 class Task{                                 //Класс задания - основной элемент для отображения в TODO
     private var uniqueId = String()
     private var taskDescription = String()  //Название задания
-    private var taskDate = Date()           //Его дата
+    private var taskDate = Date()        //Его дата
+    private var isTimeMatter = false
     private var relatedTopic = RelatedTopic()   //С какой темой связано
     private var taskState = TaskState.NotCompleted  //Состояние задания
     private var taskOwner : User
@@ -47,15 +56,45 @@ class Task{                                 //Класс задания - осн
         return uniqueId
     }
     
-    init(description : String, date : Date, relatedTopic : RelatedTopic, taskOwn : User) {
+    var getTimeMatter : Bool{
+        return isTimeMatter
+    }
+    
+    var getYearNumber : Int{
+        return taskDate.getMonth()
+    }
+    
+    var getMonthNumber : Int{
+        return taskDate.getMonth()
+    }
+    
+    var getDayNumber : Int{
+        return taskDate.getDay()
+    }
+    
+    init(description : String, date : Date, relatedTopic : RelatedTopic, taskOwn : User, isTime : Bool = false) {
         self.taskDescription = description
         self.taskDate = date
         self.relatedTopic = relatedTopic
         self.taskOwner = taskOwn
+        self.isTimeMatter = isTime
+    }
+    
+    init(){
+        taskOwner = User()
     }
     
     func completeTask(){
         self.taskState = .Completed
+    }
+    
+    func switchTaskState(){
+        if (self.taskState == .Completed){
+            self.taskState = .NotCompleted
+        }
+        else{
+            self.taskState = .Completed
+        }
     }
     
     func setDescription(description : String){
@@ -70,3 +109,5 @@ class Task{                                 //Класс задания - осн
         self.relatedTopic = topic
     }
 }
+
+
