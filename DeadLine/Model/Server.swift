@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Класс сервера - хранит всех пользователей и прочую инфу
+
 class Server{
     private var users = [User]()
     

@@ -42,11 +42,11 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
     @objc func switchData(segmented : UISegmentedControl){  //Метод, вызываемый при изменении значения переключателя
         sortTasks.reloadData()
         
-        switch segmented.selectedSegmentIndex { 
-        case 0:
+        switch segmented.selectedSegmentIndex { //классическая switch-case конструкция
+        case 0:                             //если мы выбррали режим по дате, то загружаем сегодняшние дела
             loadTasksForDay(day: Date())
         default:
-            loadTasksForTopic(topic: ApplicationData.shared.currentUser!.getUserTags.first!)
+            loadTasksForTopic(topic: ApplicationData.shared.currentUser!.getUserTags.first!)    //По тегам - загружаем с первого тега данные
             sortTasks.allowsMultipleSelection = false
             sortTasks.isScrollEnabled = true
             
@@ -54,23 +54,25 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    func loadTasksForDay(day : Date){
+    func loadTasksForDay(day : Date){       //Загрузка заданий по определенной дате
        dataSourceTask = ApplicationData.shared.server.taskSystem.getTaskForUser(for: ApplicationData.shared.getCurrent!, day: day) ?? []
         taskTable.reloadData()
     }
     
-    func loadTasksForTopic(topic : RelatedTopic){
+    func loadTasksForTopic(topic : RelatedTopic){ //Загрузка заданий по определенному тэгу
         dataSourceTask = ApplicationData.shared.server.taskSystem.getTaskForUser(for: ApplicationData.shared.getCurrent!, topic: topic) ?? []
         taskTable.reloadData()
     }
     
-    func makeGrayViewTable(){
+    func makeGrayViewTable(){           //Тонируем вьюху внизу таблицы с целью декорации
         let viewBottom = UIView()
 
         taskTable.tableFooterView = viewBottom
         //taskTable.tableHeaderView = viewBottom
         taskTable.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.96, alpha: 1.0)
     }
+    
+    //Инициализация таблицы - уже было
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return dataSourceTask.count
@@ -100,9 +102,12 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    //С инициализацией коллекции немного посложнее - из-за того, что в одной коллекции в разные моменты времени могут храниться разные ячейки - нужно учитывать это
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //Для понимания того, какие ячейки нужно отображать, мы опираемся на переключатель на 2 значения
         switch sortTypePick.selectedSegmentIndex {
-        case 0:
+        case 0: //У него ноль - загружаем ячейки даты и забиваем значения для них
             collectionView.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "Date")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Date", for: indexPath) as! DateCell
             
@@ -114,7 +119,7 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
             cell.frame.size.width = 50
             
             return cell
-        default:
+        default:        //Аналогично, но с тегом
             collectionView.register(UINib(nibName: "ColorTagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ThemeTag")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThemeTag", for: indexPath) as! ColorTagCollectionViewCell
             cell.relatedTopic = tagsList![indexPath.row]
@@ -123,6 +128,8 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
         }
 
     }
+    
+    //Нажимая на дату или тег, мы вызываем метод выборки заданий по определенным критериям
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (sortTypePick.selectedSegmentIndex == 0){
@@ -145,6 +152,7 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
   
     }
     
+    //Прячем синюю линию
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if (sortTypePick.selectedSegmentIndex == 0){

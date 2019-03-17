@@ -8,6 +8,10 @@
 
 import Foundation
 
+//Расширение для системной структуры даты
+//Все эти расширения достаточно похожи и служат лишь для различного формата времени - где-то выводим только дату, где-то только время и тд
+//Кроме двух методов
+
 extension Date{
     func getDay() -> Int{
         let formatter = DateFormatter()
@@ -69,7 +73,7 @@ extension Date{
         return thatDay
     }
     
-    mutating func setTime(hours : Int, minutes : Int){
+    mutating func setTime(hours : Int, minutes : Int){      //Выставить время в дате, зная часы и минуты
         print(minutes)
         let time = String(format: "%d:%02d", hours, minutes)
         let day = self.getDateWithNoTime()
@@ -82,7 +86,7 @@ extension Date{
         
     }
     
-    mutating func setDate(from date : Date){
+    mutating func setDate(from date : Date){        //Выставить дату, просто дату и всё
         let time = self.getTime()
         let day = date.getDateWithNoTime()
         

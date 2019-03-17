@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Страница профиля - пока что пустая, имеет только метод логаута
+
 class ProfilePageViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -16,8 +18,9 @@ class ProfilePageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func logoutFromSystem(_ sender: Any) {
+    @IBAction func logoutFromSystem(_ sender: Any) {        //Загружаем окно логина
         let mainPart = UIStoryboard(name: "RegistrationScreens", bundle: nil).instantiateInitialViewController() as! RegistrationScreenNavigation
+        ApplicationData.shared.currentUser = nil
         self.present(mainPart, animated: true, completion: nil)
     }
     

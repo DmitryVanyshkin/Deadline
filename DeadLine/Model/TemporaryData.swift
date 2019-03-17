@@ -9,31 +9,39 @@
 import Foundation
 import UIKit.UIColor
 
+//Временная мера - синглтон, хранящий основные классы приложения - систему заданий и пар, а так же абстрактный сервер и прочий вспомогательный контент
+
 enum WhatDisplay : Int{
     case minors = 0
     case groupName
     case groupNumber
 }
 
+// ЗАГУГЛИТЕ И ОПИШИТЕ СИНГЛТОН В ОТЧЕТЕ
+
 class ApplicationData{
     static let shared = ApplicationData()
     
-    var currentUser : User?
+    var currentUser : User?     //пользователь, который в данный момент залогинен в систему - нужно для отображения всей инфы о нем
     
-    private var userToAdd : User?
+    private var userToAdd : User?       //Пользователь, который регистрируется в данный момент
     
     private var whatDisplay = WhatDisplay.minors
     
-    var server = Server()
+    var server = Server()       //Сервер
     
-    let dateManager = DateManager()
+    let dateManager = DateManager() //Вспомогательный класс, для полноценного отображения дат и работы с нимм
     
+    //ХАРДКОД - массив образовательных программ
     private let programsList = [EducationProgram(name: "Информатика и вычислительная техника", short: "БИВ"), EducationProgram(name: "Инфокоммуникационные технологии и системы связи", short: "БИТ"), EducationProgram(name: "Прикладная математика", short: "БПМ"), EducationProgram(name: "Логистика и управление цепями поставок", short: "БЛГ"), EducationProgram(name: "Компьютерная безопасность", short: "СКБ", programType : ProgramType.specialist), EducationProgram(name: "Программная инженерия", short: "БПИ"), EducationProgram(name: "Прикладная математика и информатика", short: "БПМИ")]
     
+    //Список количества групп на каждом курсе каждой программы
     private let groupsList = ["БИВ" : [4, 5, 5, 5]]
     
+    //список майноров
     let minorsList = ["Прикладная экономика" , "Стартап", "Бизнес - информатика", "Мир глазами физиков", "Психолгия"]
     
+    //Это для отображения таблиц с выбором майнора/специальности/групп и тд
     var getData: [String]{
         switch  whatDisplay {
         case .minors:
@@ -44,7 +52,7 @@ class ApplicationData{
                 fullForm.append(i.name)
             }
             return fullForm
-        case .groupNumber:
+        case .groupNumber:      //Убералгоритм для генерации названий групп, зная количество групп на каждом курсе
             guard let chosenSpec = userToAdd?.getSpecialize else {
                 return []
             }
@@ -69,7 +77,7 @@ class ApplicationData{
         }
     }
     
-    func createUserToAdd(){
+    func createUserToAdd(){     //Обнуление пользователя после регистрации
         userToAdd = User()
     }
     
@@ -97,14 +105,14 @@ class ApplicationData{
         whatDisplay = what
     }
     
-    private init(){
+    private init(){     //Приватный конструктор - главная фишка синглтона, обеспечивает его едиственность
         
     }
     
     
 }
 
-func hexStringToUIColor (hex:String) -> UIColor {
+func hexStringToUIColor (hex:String) -> UIColor {       //Алгоритм преобразования hex-кода в цвет
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     
     if (cString.hasPrefix("#")) {

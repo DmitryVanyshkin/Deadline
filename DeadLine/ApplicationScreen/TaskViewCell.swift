@@ -8,23 +8,26 @@
 
 import UIKit
 
+//Ячейка задания - тут посложнее уже
+
 class TaskViewCell: UITableViewCell {
 
-    @IBOutlet weak var isCompletedButton: UIButton!
-    @IBOutlet weak var taskTextBottom: NSLayoutConstraint!
-    @IBOutlet weak var taskDate: UILabel!
-    @IBOutlet weak var colorTag: UIView!
-    @IBOutlet weak var taskText: UILabel!
+    @IBOutlet weak var isCompletedButton: UIButton! // Кнопка, позволяющая поменять состояние товара
+    @IBOutlet weak var taskTextBottom: NSLayoutConstraint!  //Констрейнт - этот что-то новое. По сути, фиксирует отступы разных графических элементов
+    @IBOutlet weak var taskDate: UILabel!       //Лейбл даты
+    @IBOutlet weak var colorTag: UIView!        //Цвет тега, к которому привязано задание
+    @IBOutlet weak var taskText: UILabel!       //Текст самого задания
     
     
-    var linkedTask = Task()
-    private var isChecked = false
+    var linkedTask = Task()                     //Привязанное задание - уже писал, зачем так делать
+    private var isChecked = false               //Флаг, отвечающий за то, сделано ли задание - нужен для отображения галочки
     
     let constraintWithNoDate = 10
     override func awakeFromNib() {
         super.awakeFromNib()
         checkForValue()
         preload()
+        
         // Initialization code
     }
     
@@ -46,7 +49,7 @@ class TaskViewCell: UITableViewCell {
         colorTag.backgroundColor = hexStringToUIColor(hex: linkedTask.getTopic.relatedTopicColor)
     }
     
-    func checkForValue(){
+    func checkForValue(){       //Если задание ещё не сделано, то ставим просто окошко, сделано - галочку
         
         if (linkedTask.getState == .NotCompleted){
              isCompletedButton.setImage(UIImage(named: "notCompleted"), for: .normal)

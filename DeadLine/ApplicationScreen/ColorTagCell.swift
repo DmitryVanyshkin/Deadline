@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Класс ячейки цветного квадратика для создания нового тега. Имеет цвет и галочку
+
 class ColorTagCell: UICollectionViewCell {
     
     @IBOutlet weak var chosenColor: UIImageView!

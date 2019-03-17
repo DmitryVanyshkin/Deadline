@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Ячейка даты - тут просто - лейблы номера и дня недели и синяя линия
+
 class DateCell: UICollectionViewCell {
 
     @IBOutlet weak var dayOfWeekLabel: UILabel!

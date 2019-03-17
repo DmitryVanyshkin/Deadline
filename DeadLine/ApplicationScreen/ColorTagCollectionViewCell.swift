@@ -8,11 +8,13 @@
 
 import UIKit
 
+//Ячейка тега, по которым можно сортировать задания - имеет цветной лейбл и линюю синюю
+
 class ColorTagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var blueChooseLine: UIView!
     @IBOutlet weak var tagNameLabel: UILabel!
     
-    var relatedTopic = RelatedTopic()
+    var relatedTopic = RelatedTopic()       //Аналогия с классом ячейки пары - удобно загружать данные
     
     override func awakeFromNib() {
         super.awakeFromNib()

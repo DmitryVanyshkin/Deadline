@@ -8,7 +8,7 @@
 
 import Foundation
 class User {                                                //Класс пользователя - основной юнит нашего приложения
-    private var email = String()
+    private var email = String()                            //Все его поля - названия говорящиие, не буду описывать
     private var password = String()
     private var fullName = Name()
     private var educationProgram = EducationProgram()
@@ -16,6 +16,7 @@ class User {                                                //Класс пол�
     private var group = String()
     private var userTags = defaultTagTopics
     
+    //Конструктор инициализирующий - одна штука
     init(email : String, password : String, fullName : Name, educationProgram : EducationProgram, minor : String? = nil, group : String) {
         self.email = email
         self.password = password
@@ -29,7 +30,7 @@ class User {                                                //Класс пол�
         
     }
     
-    var getUserTags : [RelatedTopic]{
+    var getUserTags : [RelatedTopic]{       //Геттеры - внебрачные дети инкапсуляции
         return userTags
     }
     
@@ -58,7 +59,7 @@ class User {                                                //Класс пол�
         return educationProgram.name
     }
     
-    var countGrade : Int?{
+    var countGrade : Int?{          //Считаем курс по группе студента - обычный парсинг строки
         var gr = Int()
         if (group.isEmpty){
             return nil
@@ -83,7 +84,7 @@ class User {                                                //Класс пол�
         return minor ?? ""
     }
     
-    func setFirstName(name : String){
+    func setFirstName(name : String){       //Сеттеры - дети инкапсуляции
         fullName.firstName = name
     }
     
@@ -127,7 +128,7 @@ class User {                                                //Класс пол�
     
 }
 
-struct Name{
+struct Name{                //Структура имени - ну так удобнее хранить его
     var firstName = String()
     var fatherName = String()
     var lastName = String()
@@ -143,7 +144,7 @@ struct Name{
     }
 }
 
-struct EducationProgram{
+struct EducationProgram{                //Структура образовательной программы - полное имя, краткое для формы и тип программы, сделан перечислением
     var name = String()
     var shortForm = String()
     var programType = ProgramType.bachelor
@@ -159,7 +160,7 @@ struct EducationProgram{
     }
 }
 
-enum ProgramType : Int{
+enum ProgramType : Int{         //Пока есть три типа - бакалвр, специалитет и магистратура
     case bachelor = 0
     case specialist
     case master
