@@ -13,7 +13,7 @@ enum TaskState : Int{              //Состояние товара - пока 
     case Completed
 }
 
-struct RelatedTopic{                       //Данная структура описывает тему, с которой связано то или иное задание
+class RelatedTopic{                       //Данная структура описывает тему, с которой связано то или иное задание
     var relatedTopicName = String()         //Полное имя - для хранения
     var relatedTopicShortForm = String()    //Сокращенная форма - отображается на экране
     var relatedTopicColor = String()        //Цвет - для отображения на экране

@@ -69,7 +69,7 @@ class DateManager{
         let daysArray = getAmountForSlider()
         var monthNumberInArray = 0
         
-        while (number >= daysArray[monthNumberInArray]){
+        while (number > daysArray[monthNumberInArray]){
             monthNumberInArray+=1
             if (monthNumberInArray == 4){
                 break

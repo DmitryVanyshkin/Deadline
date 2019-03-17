@@ -19,8 +19,6 @@
 		CB05C80C222D571D0054FBB0 /* SFProText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB05C80B222D571D0054FBB0 /* SFProText-Regular.otf */; };
 		CB05C80E222D67FD0054FBB0 /* RegistrationSceenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05C80D222D67FD0054FBB0 /* RegistrationSceenViewController.swift */; };
 		CB756A672229A08200F93680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB756A662229A08200F93680 /* AppDelegate.swift */; };
-		CB756A692229A08200F93680 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB756A682229A08200F93680 /* ViewController.swift */; };
-		CB756A6C2229A08200F93680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB756A6A2229A08200F93680 /* Main.storyboard */; };
 		CB756A6E2229A08700F93680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB756A6D2229A08700F93680 /* Assets.xcassets */; };
 		CB756A712229A08700F93680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB756A6F2229A08700F93680 /* LaunchScreen.storyboard */; };
 		CB756A792229A0A500F93680 /* UserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB756A782229A0A500F93680 /* UserClass.swift */; };
@@ -43,6 +41,9 @@
 		CB7D05E722397B6B0086C6B5 /* ColorTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05E522397B6B0086C6B5 /* ColorTagCollectionViewCell.swift */; };
 		CB7D05E822397B6B0086C6B5 /* ColorTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */; };
 		CB7D05EE223990170086C6B5 /* ColorTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7D05ED223990170086C6B5 /* ColorTagCell.swift */; };
+		CBEA9F7F223B730100BAA4AD /* ExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA9F7D223B730100BAA4AD /* ExerciseViewCell.swift */; };
+		CBEA9F80223B730100BAA4AD /* ExerciseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBEA9F7E223B730100BAA4AD /* ExerciseViewCell.xib */; };
+		CBEA9F82223E2FD400BAA4AD /* ExerciseTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA9F81223E2FD400BAA4AD /* ExerciseTimeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +60,6 @@
 		CB05C80D222D67FD0054FBB0 /* RegistrationSceenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSceenViewController.swift; sourceTree = "<group>"; };
 		CB756A632229A08200F93680 /* DeadLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB756A662229A08200F93680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB756A682229A08200F93680 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB756A6B2229A08200F93680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB756A6D2229A08700F93680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB756A702229A08700F93680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB756A722229A08700F93680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +83,9 @@
 		CB7D05E522397B6B0086C6B5 /* ColorTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB7D05ED223990170086C6B5 /* ColorTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTagCell.swift; sourceTree = "<group>"; };
+		CBEA9F7D223B730100BAA4AD /* ExerciseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewCell.swift; sourceTree = "<group>"; };
+		CBEA9F7E223B730100BAA4AD /* ExerciseViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseViewCell.xib; sourceTree = "<group>"; };
+		CBEA9F81223E2FD400BAA4AD /* ExerciseTimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTimeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				CB05C801222D0D520054FBB0 /* Fonts */,
 				CB756A652229A08200F93680 /* DeadLine */,
+				CB756A722229A08700F93680 /* Info.plist */,
 				CB756A642229A08200F93680 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,11 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				CB756A662229A08200F93680 /* AppDelegate.swift */,
-				CB756A682229A08200F93680 /* ViewController.swift */,
-				CB756A6A2229A08200F93680 /* Main.storyboard */,
 				CB756A6D2229A08700F93680 /* Assets.xcassets */,
+				CBEA9F7C223B72A800BAA4AD /* ExerciseScreens */,
 				CB05C808222D165D0054FBB0 /* RegistrationScreens */,
-				CB756A722229A08700F93680 /* Info.plist */,
 				CB7D05CC2232F8FD0086C6B5 /* ApplicationScreen */,
 				CB756A7A2229A0B300F93680 /* Model */,
 			);
@@ -174,6 +175,7 @@
 		CB7D05CC2232F8FD0086C6B5 /* ApplicationScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CB7D05D7223313660086C6B5 /* TasksScreenViewController.swift */,
 				CB7D05CD2232F9490086C6B5 /* ApplicationScreens.storyboard */,
 				CB7D05ED223990170086C6B5 /* ColorTagCell.swift */,
 				CB7D05E32237E0B70086C6B5 /* NewTaskViewController.swift */,
@@ -182,11 +184,20 @@
 				CB7D05E622397B6B0086C6B5 /* ColorTagCollectionViewCell.xib */,
 				CB7D05D92233B7EA0086C6B5 /* DateCell.swift */,
 				CB7D05DA2233B7EA0086C6B5 /* DateCell.xib */,
-				CB7D05D7223313660086C6B5 /* TasksScreenViewController.swift */,
 				CB7D05D3223305DD0086C6B5 /* TaskViewCell.swift */,
 				CB7D05D4223305DD0086C6B5 /* TaskViewCell.xib */,
 			);
 			path = ApplicationScreen;
+			sourceTree = "<group>";
+		};
+		CBEA9F7C223B72A800BAA4AD /* ExerciseScreens */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA9F7D223B730100BAA4AD /* ExerciseViewCell.swift */,
+				CBEA9F81223E2FD400BAA4AD /* ExerciseTimeTableViewController.swift */,
+				CBEA9F7E223B730100BAA4AD /* ExerciseViewCell.xib */,
+			);
+			path = ExerciseScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +266,8 @@
 				CB7D05CE2232F9490086C6B5 /* ApplicationScreens.storyboard in Resources */,
 				CB05C807222D10400054FBB0 /* SFProText-Medium.ttf in Resources */,
 				CB05C80C222D571D0054FBB0 /* SFProText-Regular.otf in Resources */,
+				CBEA9F80223B730100BAA4AD /* ExerciseViewCell.xib in Resources */,
 				CB05C803222D0D6A0054FBB0 /* antonio-bold.ttf in Resources */,
-				CB756A6C2229A08200F93680 /* Main.storyboard in Resources */,
 				CB7D05DC2233B7EA0086C6B5 /* DateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +283,6 @@
 				CB7D05DB2233B7EA0086C6B5 /* DateCell.swift in Sources */,
 				CB7D05E722397B6B0086C6B5 /* ColorTagCollectionViewCell.swift in Sources */,
 				CB05C800222CF2930054FBB0 /* Server.swift in Sources */,
-				CB756A692229A08200F93680 /* ViewController.swift in Sources */,
 				CB7D05D0223302B70086C6B5 /* LoginFullViewController.swift in Sources */,
 				CB7D05DE223454A70086C6B5 /* DateManager.swift in Sources */,
 				CB7D05CB2232D2BF0086C6B5 /* RegistrationScreenNavigation.swift in Sources */,
@@ -286,10 +296,12 @@
 				CB05C80E222D67FD0054FBB0 /* RegistrationSceenViewController.swift in Sources */,
 				CB756A7C2229AC9E00F93680 /* TaskClass.swift in Sources */,
 				CB7D05D8223313660086C6B5 /* TasksScreenViewController.swift in Sources */,
+				CBEA9F7F223B730100BAA4AD /* ExerciseViewCell.swift in Sources */,
 				CB05C7FE222CF1620054FBB0 /* TemporaryData.swift in Sources */,
 				CB7D05C7222EF43E0086C6B5 /* ChooseSomeTypesTableViewController.swift in Sources */,
 				CB05C7FC222C6FC30054FBB0 /* ExerciseSystemClass.swift in Sources */,
 				CB7D05E02235A8310086C6B5 /* ProfilePageViewController.swift in Sources */,
+				CBEA9F82223E2FD400BAA4AD /* ExerciseTimeTableViewController.swift in Sources */,
 				CB7D05D5223305DD0086C6B5 /* TaskViewCell.swift in Sources */,
 				CB7D05EE223990170086C6B5 /* ColorTagCell.swift in Sources */,
 				CB7D05E42237E0B70086C6B5 /* NewTaskViewController.swift in Sources */,
@@ -299,14 +311,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB756A6A2229A08200F93680 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB756A6B2229A08200F93680 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB756A6F2229A08700F93680 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U3F85XR92;
-				INFOPLIST_FILE = DeadLine/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5U3F85XR92;
-				INFOPLIST_FILE = DeadLine/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

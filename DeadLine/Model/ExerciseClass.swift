@@ -22,6 +22,20 @@ enum LessonType : Int           //Тип занятия - влияет на дл
 struct AuditoryLocation{
     var adress = String()
     var auditoryNumber = String()
+    
+    init(){
+        adress = "Таллинская, 34"
+        auditoryNumber = "308"
+    }
+    
+    init(adress : String, auditoryNumber : String){
+        self.adress = adress
+        self.auditoryNumber = auditoryNumber
+    }
+    
+    func getStringLocation() -> String{
+        return "Ауд. \(auditoryNumber) \(adress)"
+    }
 }
 
 class Exercise{                 //Класс занятия - нужен для отображения
@@ -36,8 +50,33 @@ class Exercise{                 //Класс занятия - нужен для 
         return uniqueId
     }
     
-    var getDay : Date{
+    var getName : String{
+        return exerciseName
+    }
+    
+    var getDate : Date{
         return dateStart
+    }
+    
+    var getLength : Int{
+        return length
+    }
+    
+    var getLocation : AuditoryLocation{
+        return location
+    }
+    
+    init(){
+        
+    }
+    
+    init(exerciseName : String, dateStart : Date, length : Int = 80*60, lessonType : LessonType = .Lecture, location : AuditoryLocation){
+        self.exerciseName = exerciseName
+        self.dateStart = dateStart
+        self.length = length
+        self.lessonType = lessonType
+        self.location = location
+        
     }
     
 }

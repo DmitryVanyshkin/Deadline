@@ -8,6 +8,10 @@
 
 import UIKit
 
+//Экран входа - самый первый, возникающий на глазах пользователя
+//Писать нечего - есть кнопка логина - отправляет на окно входа
+//Регистрации - аналогично
+
 class LoginScreenViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!

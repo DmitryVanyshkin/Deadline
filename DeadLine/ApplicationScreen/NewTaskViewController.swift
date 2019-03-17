@@ -129,6 +129,7 @@ class NewTaskViewController: UIViewController, UICollectionViewDelegate, UIColle
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorTag", for: indexPath) as! ColorTagCell
             cell.setColor(hex : colorsList[indexPath.row])
+            
             return cell
         }
     }

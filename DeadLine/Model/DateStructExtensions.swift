@@ -43,6 +43,15 @@ extension Date{
         return thatDay
     }
     
+    func getFullTime() -> String{
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.dateFormat = "HH:MM"
+        let thatTime = formatter.string(from: self)
+        print(thatTime)
+        return thatTime
+    }
+    
     func getTime() -> String{
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU")

@@ -8,8 +8,11 @@
 
 import UIKit
 
+//Экран регистрации, тут будет много и объемно
+//Опять делегат. Черт возьми, зачем? Чтобы можно было имплементить методы текстового поля - например прописать, что происходит при начале редактирования текстового поля и тд
+
 class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var registrateButton: UIButton!
+    @IBOutlet weak var registrateButton: UIButton!          //Я не буду комментировать, что это за поля, там всё и так очевидно из названий. Будет не понятно - спросите. Маковского, 2, А192(2)
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -21,12 +24,12 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var groupView: UIView!
     @IBOutlet weak var minorView: UIView!
     
-    var userToAdd = ApplicationData.shared.getUserToAdd
+    var userToAdd = ApplicationData.shared.getUserToAdd     //Мы при регистрации добавляем пользователя на сервер, пускай он будет отдельным полем
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registrateButton.isEnabled = false
+        registrateButton.isEnabled = false          //Кнопка регистрации по дефолту недоступна
         preloadButtons()
         self.navigationController?.isNavigationBarHidden = false
         self.hideKeyboardWhenTappedAround()
@@ -38,7 +41,11 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         registrateButton.layer.cornerRadius = 12
     }
     
+    
+    //Это уже что-то новенькое - метод, вызываемый при появлении этого экрана заново. НЕ ИНИЦИАЛИЗАЦИИ, а появлении именно на свет божий. Это большая разница!!!
+    //Зачем это нужно - предположим вы хотите выбрать майнор - вас отбрасывает на другой экран. Так вот, чтобы другие поля не забыли свои значения, мы прогружаем это всё
     override func viewWillAppear(_ animated: Bool) {
+        //Я не знаю, что здесь описывать. Мы просто из поля userToAdd разбрасываем его инфу по лейблам, кнопкам и тд
         registrateButton.isEnabled = false
         checkForFields()
         groupView.isHidden = false
@@ -61,7 +68,13 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         minorNameLabel.text = userInfo.getMinor.isEmpty ? "Выберите майнор" : userInfo.getMinor
         gradeNameLabel.text = userInfo.getGroup.isEmpty ? "Выберите группу" : userInfo.getGroup
         
+        //Что за вопросительные знаки?? Тернарный оператор, так меньше строчек уходит, чем если if-конструкция
+        
     }
+    
+    //Метод, вызываемый в тот момент, когда мы перестаем редактировать данные в текстфилде
+    //У каждого текстфилда есть уникальный тэг, по которому мы и пониаем, за что он отвечает
+    //В зависимости от этого, обновляем у пользователя для добавления то или иное поле
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
@@ -82,6 +95,7 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         checkForFields()
     }
     
+    //Функция проверки на поля. Зачем? В зависимости от того, какой у нас курс и выбрали ли мы курс вообще, становится доступным/недоступным выбор майнора и группы
     
     func checkForFields(){
         userToAdd = ApplicationData.shared.getUserToAdd
@@ -110,6 +124,7 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    //Аналогичный метод
 
     func checkForAllFieldsFull(){
         guard let userInfo = userToAdd else{
@@ -140,6 +155,9 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         registrateButton.layer.cornerRadius = 12
     }
     
+    //Ха-ха-ха, описал несколькими файлами ниже. Я сделал универсальную таблицу для выбора специальности/группы/майнор
+    //У каждой кнопки, отвечающей за выбор этих свойств, есть уникальный тег, исходя из которого мы понимаем, что же надо выбирать и с какими данными открывать таблицу
+    
     @IBAction func openChooseTable(_ sender: UIButton) {
         switch sender.tag {
         case 0:
@@ -154,6 +172,8 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "ShowChooseTable", sender: nil)
     }
     
+    //Регистрируем пользователя блин, если все поля заполнены, то кнопка регистрации будет доступна и мы сможем всё выбрать
+    
     @IBAction func registrateUser(_ sender: UIButton) {
         if sender.isEnabled == true{
             ApplicationData.shared.getServer.newUser(user : userToAdd!)
@@ -161,17 +181,10 @@ class RegistrationSceenViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+//Расширение на выставления цвета кнопки на каждое состоянии
 
 extension UIButton{
     func setButtonColor(){

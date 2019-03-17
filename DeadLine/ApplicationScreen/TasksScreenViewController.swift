@@ -8,30 +8,59 @@
 
 import UIKit
 
+//Часть номер я не помню номер
+//Здесь будет отображаться основной интерфейс приложения
+//В частности здесь будет экран с отображением всех заданий пользователя, которые он ввёл
+
+
+//Снова знакомый нам уже подход с делегированием
 class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
 
 
-    @IBOutlet weak var sortTasks: UICollectionView!
-    @IBOutlet weak var sortTypePick: UISegmentedControl!
-    @IBOutlet weak var taskTable: UITableView!
+    @IBOutlet weak var sortTasks: UICollectionView!     //Коллекция отвечающая за выбор даты или тега задания
+    @IBOutlet weak var sortTypePick: UISegmentedControl!    //Выбираем критерий выбора заданий - переключатель на два значения
+    @IBOutlet weak var taskTable: UITableView!              //Таблица заданий
+    //Вот тут начнется содомия - общее количество дней на диапазон 5 месяцев - что это за зверь, расскажу в классе менеджера дат
     let amountDays = ApplicationData.shared.dateManager.getAmountForSlider()
-    var dataSourceTask = [Task]()
-    var dayToShow = Date()
+    var dataSourceTask = [Task]() //Задания для отображения - получается путем поиска в классе, хранящем этих красавцев
+    let tagsList = ApplicationData.shared.currentUser?.getUserTags  //Список тегов данного пользователя, хранятся прямо в его сердце
+    var dayToShow = Date()      //Задания с какой даты мы отображаем
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskTable.delegate = self
+        taskTable.delegate = self           //Снова делегируем
         taskTable.dataSource = self
         sortTasks.delegate = self
         sortTasks.dataSource = self
-        sortTasks.allowsMultipleSelection = false
+        sortTasks.allowsMultipleSelection = false   //Запрещаем возможность выбора нескольки заданий сразу
         makeGrayViewTable()
-        makeMoveToCurrentDate()
-        // Do any additional setup after loading the view.
+        makeMoveToCurrentDate()                     //Переводим коллекцию дат на текущий день - визуализация
+        sortTypePick.addTarget(nil, action: #selector(switchData(segmented:)), for: .valueChanged) //Привязываем к переключателю действие, при изменении его значения. В нашем случае это изменение того, по какому критерию отображаем задания
+    }
+    
+    //Я ИССЯК
+    
+    @objc func switchData(segmented : UISegmentedControl){  //Метод, вызываемый при изменении значения переключателя
+        sortTasks.reloadData()
+        
+        switch segmented.selectedSegmentIndex { 
+        case 0:
+            loadTasksForDay(day: Date())
+        default:
+            loadTasksForTopic(topic: ApplicationData.shared.currentUser!.getUserTags.first!)
+            sortTasks.allowsMultipleSelection = false
+            sortTasks.isScrollEnabled = true
+            
+        }
+        
     }
     
     func loadTasksForDay(day : Date){
        dataSourceTask = ApplicationData.shared.server.taskSystem.getTaskForUser(for: ApplicationData.shared.getCurrent!, day: day) ?? []
-        print(dataSourceTask.count)
+        taskTable.reloadData()
+    }
+    
+    func loadTasksForTopic(topic : RelatedTopic){
+        dataSourceTask = ApplicationData.shared.server.taskSystem.getTaskForUser(for: ApplicationData.shared.getCurrent!, topic: topic) ?? []
         taskTable.reloadData()
     }
     
@@ -44,7 +73,8 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceTask.count
+            return dataSourceTask.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,26 +91,50 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return amountDays.last!
+        if (sortTypePick.selectedSegmentIndex == 0){
+            return amountDays.last!
+        }
+        else{
+            return tagsList!.count
+        }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "Date")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Date", for: indexPath) as! DateCell
+        switch sortTypePick.selectedSegmentIndex {
+        case 0:
+            collectionView.register(UINib(nibName: "DateCell", bundle: nil), forCellWithReuseIdentifier: "Date")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Date", for: indexPath) as! DateCell
+            
+            cell.blueChooseLine.isHidden = true
+            
+            cell.dateNumberLabel.text = "\(ApplicationData.shared.dateManager.countDayNumber(number: indexPath.row + 1, arrayMonthRanges: amountDays))"
+            
+            cell.dayOfWeekLabel.text = convertNumberToDay(number: (indexPath.row + 1) % 7 + 1)
+            cell.frame.size.width = 50
+            
+            return cell
+        default:
+            collectionView.register(UINib(nibName: "ColorTagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ThemeTag")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThemeTag", for: indexPath) as! ColorTagCollectionViewCell
+            cell.relatedTopic = tagsList![indexPath.row]
+            cell.setDataForLabel()
+            return cell
+        }
 
-        cell.blueChooseLine.isHidden = true
-        
-        cell.dateNumberLabel.text = "\(ApplicationData.shared.dateManager.countDayNumber(number: indexPath.row + 1, arrayMonthRanges: amountDays))"
-        
-        cell.dayOfWeekLabel.text = convertNumberToDay(number: (indexPath.row + 1) % 7 + 1)
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        (collectionView.cellForItem(at: indexPath) as! DateCell).blueChooseLine.isHidden = false
-        let date = ApplicationData.shared.dateManager.countNumberToDay(number: indexPath.row + 1)
-        loadTasksForDay(day: date)
+        if (sortTypePick.selectedSegmentIndex == 0){
+            (collectionView.cellForItem(at: indexPath) as! DateCell).blueChooseLine.isHidden = false
+            let date = ApplicationData.shared.dateManager.countNumberToDay(number: indexPath.row + 1)
+            loadTasksForDay(day: date)
+        }
+        else{
+            (collectionView.cellForItem(at: indexPath) as? ColorTagCollectionViewCell)?.blueChooseLine.isHidden = false
+            let topic = ApplicationData.shared.currentUser?.getUserTags[indexPath.row]
+            loadTasksForTopic(topic: topic!)
+        }
         
     }
     
@@ -93,7 +147,13 @@ class TasksScreenViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        (collectionView.cellForItem(at: indexPath) as? DateCell)?.blueChooseLine.isHidden = true
+        if (sortTypePick.selectedSegmentIndex == 0){
+            (collectionView.cellForItem(at: indexPath) as? DateCell)?.blueChooseLine.isHidden = true
+        }
+        else{
+            (collectionView.cellForItem(at: indexPath) as? ColorTagCollectionViewCell)?.blueChooseLine.isHidden = true
+
+        }
     }
     
 

@@ -16,7 +16,7 @@ class ColorTagCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         tagNameLabel.layer.cornerRadius = 4
         tagNameLabel.layer.masksToBounds = true
         blueChooseLine.layer.cornerRadius = 5

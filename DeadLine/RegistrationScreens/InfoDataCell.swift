@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//Тут всё просто - класс ячейки для предыдущей табоицы - содержить только текстовый лейбл
 class InfoDataCell: UITableViewCell {
 
     @IBOutlet weak var textContent: UILabel!

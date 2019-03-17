@@ -15,7 +15,7 @@ class ExerciseSystem{
         return allExercises[user.getEmail]
     }
     
-    func addTaskForUser(for user : User, exercise : Exercise){
+    func addExerciseForUser(for user : User, exercise : Exercise){
         if (allExercises[user.getEmail] != nil){
             allExercises[user.getEmail]!.append(exercise)
         }
@@ -25,8 +25,9 @@ class ExerciseSystem{
     }
     
     func getExercisesForUser(for user: User, day : Date) -> [Exercise]?{
-        return allExercises[user.getEmail]?.filter({$0.getDay == day})
+        return allExercises[user.getEmail]?.filter({$0.getDate.getDay() == day.getDay() && $0.getDate.getYear() == day.getYear() && $0.getDate.getMonth() == day.getMonth()})
     }
+    
     
     func deleteTaskForUser(for user : User, exercise : Exercise){
         guard var relatedExercises = allExercises[user.getEmail] else{

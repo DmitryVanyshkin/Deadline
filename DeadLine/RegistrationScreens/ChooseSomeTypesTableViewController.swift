@@ -8,44 +8,38 @@
 
 import UIKit
 
+//Класс, создающий в новом окне таблицу для выбора значения из определенных
+//По сути, данный класс - таблица с внедрением поискового окна
+
 class ChooseSomeTypesTableViewController: UITableViewController {
     
+    //Контроллер, служащий для поиска и тд
     private let searchController = UISearchController(searchResultsController: nil)
     
-    private var filteredData = [String]()
-    private let overallData = ApplicationData.shared.getData
+    private var filteredData = [String]()   //Массив, в котором будут хранится критерии, удовлетворяющее результату поиска
+    private let overallData = ApplicationData.shared.getData    //Все данные по данному критерию
     
-    private var searchBarIsEmpty: Bool {
+    private var searchBarIsEmpty: Bool { //Проверка на  то, идет ли поиск - проверка на пустоту поисковой строким
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
     
-    private var isFiltering: Bool {
+    private var isFiltering: Bool {     //Схоже с предыдущим
         return searchController.isActive && !searchBarIsEmpty
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self            //Делегируем методы поиска наш местный класс
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
 
 
-    // MARK: - Table view data source
-
-    /*override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }*/
+    //Что это за методы я уже писал в другом классе, опять повторяться не буду
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
@@ -69,6 +63,10 @@ class ChooseSomeTypesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //Здесь немного веселее
+    //В чем фишка - данная таблица, в зависимости от того, что нажал пользователь, предлагает выбрать майнор/группу или образовательную программу - текст, естественно будет разный. Обеспечивается осознание того, что выбрал пользователь через enum - enumeration (перечисление)
+    //Соответственно, мы выбрали какой-то текст, а вот то, к чему он относится и определяет наш enum
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let content = (tableView.cellForRow(at: indexPath) as! InfoDataCell).textContent.text else{
@@ -89,65 +87,21 @@ class ChooseSomeTypesTableViewController: UITableViewController {
 
         tableView.deselectRow(at: indexPath, animated: true)
         //(self.navigationController as! RegistrationScreenNavigation).reloadInfoAtRegistrationScreen()
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)        //Выбрал майнор - молодец, мы закрываемся
         
     }
     
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
+
+//Расширение для поиска
 extension ChooseSomeTypesTableViewController : UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {    //Метод, посылающий делать поиск
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    private func filterContentForSearchText(_ searchText: String) {
+    private func filterContentForSearchText(_ searchText: String) {     //Метод, делающий поиск (терпила)
         
         filteredData = overallData.filter({ (toSearch: String) -> Bool in
             return toSearch.lowercased().contains(searchText.lowercased())
@@ -158,3 +112,6 @@ extension ChooseSomeTypesTableViewController : UISearchResultsUpdating{
     
     
 }
+
+
+//Я устал, честно

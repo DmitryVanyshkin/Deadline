@@ -19,6 +19,10 @@ class TaskSystem{
         return allTasks[user.getEmail]?.filter({$0.getDate.getDay() == day.getDay() && $0.getDate.getYear() == day.getYear() && $0.getDate.getMonth() == day.getMonth()})
     }
     
+    func getTaskForUser(for user: User, topic : RelatedTopic) -> [Task]?{
+        return allTasks[user.getEmail]?.filter({$0.getTopic === topic})
+    }
+    
     
     func addTaskForUser(for user : User, task : Task){
         if (allTasks[user.getEmail] != nil){
@@ -28,6 +32,8 @@ class TaskSystem{
             allTasks[user.getEmail] = [task]
         }
     }
+    
+    
     
     func deleteTaskForUser(for user : User, task : Task){
         guard var relatedTasks = allTasks[user.getEmail] else{

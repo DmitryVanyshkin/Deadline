@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dmitry Vanyushkin. All rights reserved.
 //
 
-import UIKit
+import UIKit            //Класс - голова любого приложения. В нём прописываются все методы и свойства, которые нужно сделать до запуска приложения
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
