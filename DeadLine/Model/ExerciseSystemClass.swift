@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Класс системы пар - аналогичен системе занятий
 class ExerciseSystem{
     private var allExercises = [String : [Exercise]]()
     

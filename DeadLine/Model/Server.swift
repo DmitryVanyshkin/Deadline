@@ -20,7 +20,7 @@ class Server{
         users.append(user)
     }
     
-    func authorizeUser(email : String, password : String) -> User?{
+    func authorizeUser(email : String, password : String) -> User?{     //Проверка на то, есть ли такой пользователь в системе
         return users.first(where: {$0.getEmail == email && $0.getPassword == password})
     }
 }

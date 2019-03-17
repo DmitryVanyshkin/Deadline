@@ -19,6 +19,8 @@ enum LessonType : Int           //Тип занятия - влияет на дл
     case Another
 }
 
+//Вспомогательная структура для расположения занятия
+
 struct AuditoryLocation{
     var adress = String()
     var auditoryNumber = String()

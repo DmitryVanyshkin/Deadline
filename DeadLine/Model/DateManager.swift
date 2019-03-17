@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+//Вспомогательный класс для преобразования и отображения даты
 class DateManager{
-    private let monthsDay = [1 : 31, 2 : 28, 3 : 31, 4 : 30, 5 : 31, 6 : 30, 7 : 31, 8 : 31, 9 : 30, 10 : 31, 11 : 30, 12 : 31]
+    private let monthsDay = [1 : 31, 2 : 28, 3 : 31, 4 : 30, 5 : 31, 6 : 30, 7 : 31, 8 : 31, 9 : 30, 10 : 31, 11 : 30, 12 : 31]     //Словарь вида номер месяца - количество дней
     
-    func getAmountForSlider() -> [Int]{
+    func getAmountForSlider() -> [Int]{ //Метод ддя получения количества дней в каждом месяце
         var daysInMonth = [Int]()
         
         let today = Date()
@@ -37,13 +37,13 @@ class DateManager{
         return daysInMonth
     }
     
-    func countDayNumber(number : Int, arrayMonthRanges : [Int]) -> Int{
+    func countDayNumber(number : Int, arrayMonthRanges : [Int]) -> Int{     //Преобразование номера дня, который может превышать общее число дней месяца в нормальный день
         
         let monthCount = arrayMonthRanges.last(where: {number > $0}) ?? 0
         return number - monthCount
     }
     
-    func convertToday(arrayMonthRanges : [Int], today : Date = Date()) -> Int{
+    func convertToday(arrayMonthRanges : [Int], today : Date = Date()) -> Int{  //Похожее дело
         var number = Int()
         
         let formatter = DateFormatter()
@@ -55,7 +55,7 @@ class DateManager{
         return number
     }
     
-    func countNumberToDay(number : Int) -> Date{
+    func countNumberToDay(number : Int) -> Date{        //Преобразование числа в дату
         let today = Date()
         let formatter = DateFormatter()
         var yearChange = 0

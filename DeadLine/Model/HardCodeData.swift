@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Данные для теста
+
 let userDmitriy = User(email: "davanyushkin@edu.hse.ru", password: "IDmitriy", fullName: Name(firstName: "Дмитрий", fatherName: "Алексеевич", lastName: "Ванюшкин"), educationProgram: EducationProgram(name: "Информатика и вычислительная техника", short: "БИВ"), minor: "Прикладная экономика", group: "БИВ174")
 
 
